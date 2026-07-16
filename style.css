@@ -1,0 +1,257 @@
+/* =====================
+   KPI CARDS
+===================== */
+
+[data-testid="stMetric"] {
+
+    border-radius: 20px;
+
+    padding: 15px;
+
+    border: 2px solid #00d4ff;
+
+    box-shadow:
+        0 0 8px rgba(0,212,255,.5),
+        0 0 20px rgba(0,212,255,.2);
+
+    background: rgba(255,255,255,.05);
+
+    backdrop-filter: blur(8px);
+}
+
+/* =====================
+   TABS
+===================== */
+
+.stTabs [role="tablist"]{
+    display:flex !important;
+    width:100% !important;
+    gap:12px !important;
+}
+
+.stTabs [role="tab"]{
+
+    flex:1 !important;
+
+    height:75px !important;
+
+    border-radius:18px !important;
+
+    font-size:18px !important;
+
+    font-weight:700 !important;
+
+    border:none !important;
+
+    outline:none !important;
+
+    transition:all .25s ease !important;
+}
+
+/* TAB THƯỜNG */
+
+.stTabs [role="tab"] {
+
+    background: rgba(255,255,255,0.08) !important;
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.15) !important;
+
+    color: inherit !important;
+
+    border-radius: 18px !important;
+}
+.stTabs [role="tab"]:hover {
+
+    background: rgba(255,255,255,0.12) !important;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.15);
+
+    transform: translateY(-2px);
+
+    transition: all .25s ease;
+}
+/* Tab đang chọn */
+
+.stTabs [role="tab"][aria-selected="true"] {
+
+    background: rgba(0,212,255,0.18) !important;
+
+    border: 1px solid rgba(0,212,255,0.4) !important;
+
+    color: inherit !important;
+
+    font-weight: 800 !important;
+}
+
+/* Xóa gạch chân */
+
+.stTabs [role="tablist"]::after{
+    display:none !important;
+}
+
+/* =====================
+   DATAFRAME
+===================== */
+
+[data-testid="stDataFrame"] {
+
+    border-radius: 15px;
+
+    border: 1px solid #00d4ff;
+
+    overflow: hidden;
+}
+
+/* =====================
+   ALERTS
+===================== */
+
+[data-testid="stAlert"] {
+
+    border-radius: 18px;
+
+    border: 1px solid #00d4ff;
+
+    box-shadow:
+        0 0 8px rgba(0,212,255,.2);
+}
+
+/* =====================
+   TEXT
+===================== */
+
+h1 {
+
+    color: inherit !important;
+
+    text-align: center;
+
+    font-size: 5rem !important;
+
+    font-weight: 800 !important;
+
+    text-shadow:
+        0 0 5px rgba(0,212,255,.7);
+}
+
+h2,
+h3,
+h4 {
+
+    color: inherit !important;
+}
+
+/* =====================
+   SCROLLBAR
+===================== */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #00d4ff;
+
+    border-radius: 10px;
+}
+
+/* Xóa viền tab */
+
+.stTabs [data-baseweb="tab"] {
+    border: none !important;
+    outline: none !important;
+}
+
+/* Xóa viền tab đang chọn */
+
+.stTabs [aria-selected="true"] {
+    border: none !important;
+    outline: none !important;
+}
+
+/* Xóa thanh underline mặc định */
+
+.stTabs [data-baseweb="tab-highlight"] {
+    display: none !important;
+}
+
+/* CHỮ TAB */
+.stTabs [role="tab"] * {
+
+    font-size: 20px !important;
+
+    font-weight: 550 !important;
+}
+
+.stTabs [role="tab"] {
+
+    font-size: 22px !important;
+
+    font-weight: 700 !important;
+
+    justify-content: center !important;
+
+    text-align: center !important;
+}
+
+/* TAB ĐANG CHỌN */
+
+.stTabs [role="tab"][aria-selected="true"] {
+
+    color: black !important;
+
+    font-weight: 900 !important;
+}
+
+/* =========================
+   TAB HOVER NEON
+========================= */
+
+.stTabs [role="tab"]:hover {
+
+    transform: translateY(-3px);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.15);
+
+    transition: .25s;
+
+    color: inherit !important;
+}
+
+/* Giữ nguyên màu chữ khi hover */
+
+.stTabs [role="tab"]:hover * {
+
+    color: inherit !important;
+}
+.stTabs [role="tab"][aria-selected="true"] {
+
+    filter: brightness(120%) !important;
+
+    font-weight: 800 !important;
+}
+
+.stTabs {
+
+    margin-top: 90px !important;
+}
+
+/* Subtitle dưới tiêu đề */
+
+.center-subtitle {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: -10px;
+    margin-bottom: 35px;
+}

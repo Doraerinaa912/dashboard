@@ -12,6 +12,11 @@ st.set_page_config(
     page_icon="📊",
     layout="wide"
 )
+with open("style.css", "r", encoding="utf-8") as f:
+    st.markdown(
+        f"<style>{f.read()}</style>",
+        unsafe_allow_html=True
+    )
 
 # =====================================================
 # LOAD DATA
@@ -77,14 +82,21 @@ MAX_VIF = 4.4545
 # =====================================================
 
 st.title("📊 Dashboard Phân tích Kinh tế lượng")
-st.markdown("### Mô hình FEM dự báo ROA (Return On Assets)")
+
+st.markdown("""
+<div class="center-subtitle">
+Mô hình FEM dự báo ROA (Return On Assets)
+</div>
+""", unsafe_allow_html=True)
+
+
 
 tab1, tab2, tab3, tab4 = st.tabs(
     [
-        "📌 Tổng quan",
-        "📈 Tác động biến",
-        "⚠️ Chẩn đoán",
-        "🔮 Dự báo"
+        "📌 Tổng quan mô hình",
+        "📈 Tác động của từng biến",
+        "⚠️ Phát hiện vi phạm",
+        "🔮 Dự báo tương tác"
     ]
 )
 
@@ -300,3 +312,56 @@ if df is not None:
     st.write(
         f"Số dòng dữ liệu: {len(df):,}"
     )
+
+# =====================================================
+# HISTOGRAM
+# =====================================================
+
+if df is not None:
+
+    fig = px.histogram(
+        df,
+        x="ROA - Return On Assets",
+        nbins=40
+    )
+
+    fig.update_traces(
+        marker_color="rgba(0,212,255,0.55)",
+        marker_line_color="rgba(0,212,255,1)",
+        marker_line_width=1.5
+    )
+
+    fig.update_layout(
+        title="Phân phối ROA",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        height=500
+    )
+
+    st.plotly_chart(
+        fig,
+        use_container_width=True
+    )
+
+# =====================================================
+# INSIGHTS
+# =====================================================
+
+st.success("""
+### 📌 Key Insights
+
+• Asset Turnover là yếu tố tác động mạnh nhất đến ROA.
+
+• Current Ratio và Pre-Tax Profit Margin có tác động tích cực.
+
+• Net Profit Margin² cho thấy tác động phi tuyến đến ROA.
+
+• Tương tác giữa Debt/Equity Ratio và Current Ratio làm giảm ROA.
+
+• Mô hình giải thích được 62.54% biến động của ROA.
+
+• Không phát hiện đa cộng tuyến nghiêm trọng (Max VIF < 10).
+""")
+
+
+    
